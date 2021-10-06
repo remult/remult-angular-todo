@@ -20,7 +20,9 @@ export class AppComponent {
   }
   tasks: Task[] = [];
   async loadTasks() {
-    this.tasks = await this.tasksRepo.find();
+    this.tasks = await this.remult.repo(Task).find({
+      orderBy: task => task.completed
+    });
   }
   ngOnInit() {
     this.loadTasks();
