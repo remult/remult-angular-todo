@@ -19,3 +19,5 @@
   <input type="checkbox" id="hideCompleted" [(ngModel)]="hideCompleted" (change)="loadTasks()">
   <label for="hideCompleted">Hide completed</label>
 </p>
+<button (click)="setAll(true)">Set all as completed</button> 
+<button (click)="setAll(false)">Set all as uncompleted</button>

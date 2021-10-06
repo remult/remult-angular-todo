@@ -21,7 +21,7 @@ export class AppComponent {
   hideCompleted: boolean = false;
   tasks: Task[] = [];
   async loadTasks() {
-    this.tasks = await this.remult.repo(Task).find({
+    this.tasks = await this.tasksRepo.find({
       where: task => this.hideCompleted ? task.completed.isDifferentFrom(true) : undefined,
       orderBy: task => task.completed
     });
@@ -31,6 +31,13 @@ export class AppComponent {
   }
   async deleteTask(task: Task) {
     await task.delete();
+    this.loadTasks();
+  }
+  async setAll(completed: boolean) {
+    for await (const task of this.tasksRepo.iterate()) {
+       task.completed = completed;
+       await task.save();
+    }
     this.loadTasks();
   }
 }
