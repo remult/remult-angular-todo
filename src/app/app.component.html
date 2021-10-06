@@ -5,7 +5,8 @@
 </div>
 <ul>
   <li *ngFor="let task of tasks">
-    {{task.title}}
+    <input [(ngModel)]="task.title">
+    <button (click)="task.save()" [disabled]="!task.wasChanged()">Save</button>
     <button (click)="deleteTask(task)">Delete</button>
   </li>
 </ul>
