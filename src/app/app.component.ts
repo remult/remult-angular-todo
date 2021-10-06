@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Remult } from 'remult';
+import { AuthService } from './auth.service';
 import { Task } from './task';
 
 @Component({
@@ -9,7 +10,18 @@ import { Task } from './task';
 })
 export class AppComponent {
   title = 'remult-angular-todo';
-  constructor(public remult: Remult) {
+  constructor(public remult: Remult, private auth: AuthService) {
+  }
+  username: string = '';
+  
+  async signIn() {
+    await this.auth.signIn(this.username);
+    this.loadTasks();
+  }
+  
+  signOut() {
+    this.auth.signOut();
+    this.tasks = [];
   }
   tasksRepo = this.remult.repo(Task);
   newTask = this.tasksRepo.create();

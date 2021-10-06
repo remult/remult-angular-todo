@@ -1,5 +1,12 @@
 <title>{{title}}</title>
+<ng-container *ngIf="!remult.authenticated()">
+  <input [(ngModel)]="username"> 
+  <button (click)="signIn()">Sign in</button>
+</ng-container>
+
 <ng-container *ngIf="remult.authenticated()">
+  Hi {{remult.user.name}}
+  <button (click)="signOut()">Sign out</button>
   <div>
     <input [(ngModel)]="newTask.title" placeholder="Title">
     <button (click)="createNewTask()">Create new task</button>
