@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as jwt from 'jsonwebtoken';
 import { BackendMethod, Remult } from 'remult';
+import { Roles } from './roles';
 
 const AUTH_TOKEN_KEY = "authToken";
 @Injectable({
@@ -14,14 +15,14 @@ export class AuthService {
             this.setAuthToken(token);
         }
     }
-   
+
     async signIn(username: string) {
         this.setAuthToken(await AuthService.signIn(username));
     }
     @BackendMethod({ allowed: true })
     static async signIn(username: string) {
         let validUsers = [
-            { id: "1", name: "Jane", roles: [] },
+            { id: "1", name: "Jane", roles: [Roles.admin] },
             { id: "2", name: "Steve", roles: [] }
         ];
         let user = validUsers.find(user => user.name === username);
@@ -49,4 +50,3 @@ export function getJwtTokenSignKey() {
         return process.env.TOKEN_SIGN_KEY!;
     return "my secret key";
 }
- 

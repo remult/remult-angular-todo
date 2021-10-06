@@ -1,17 +1,22 @@
 import { Field, Entity, IdEntity, Validators, BackendMethod, Remult, Allow } from "remult";
+import { Roles } from "./roles";
 
 @Entity("tasks", {
-    allowApiCrud: Allow.authenticated
+    allowApiRead: Allow.authenticated,
+    allowApiUpdate: Allow.authenticated,
+    allowApiInsert: Roles.admin,
+    allowApiDelete: Roles.admin
 })
 export class Task extends IdEntity {
     @Field({
-        validate: Validators.required
+        validate: Validators.required,
+        allowApiUpdate: Roles.admin
     })
     title: string = '';
     @Field()
     completed: boolean = false;
 
-    @BackendMethod({ allowed: Allow.authenticated })
+    @BackendMethod({ allowed: Roles.admin })
     static async setAll(completed: boolean, remult?: Remult) {
         for await (const task of remult!.repo(Task).iterate()) {
             task.completed = completed;
