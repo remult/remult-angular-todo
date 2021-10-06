@@ -2,6 +2,9 @@
 <div>
   <input [(ngModel)]="newTask.title" placeholder="Title">
   <button (click)="createNewTask()">Create new task</button>
+  <div *ngIf="newTask.$.title.error">
+    {{newTask.$.title.error}}
+ </div>
 </div>
 <ul>
   <li *ngFor="let task of tasks">
