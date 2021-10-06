@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Remult } from 'remult';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,11 @@ import { Remult } from 'remult';
   imports: [
     BrowserModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => AuthService.fromStorage()
+      }
+    }),
     FormsModule
   ],
   providers: [
