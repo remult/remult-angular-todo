@@ -34,10 +34,7 @@ export class AppComponent {
     this.loadTasks();
   }
   async setAll(completed: boolean) {
-    for await (const task of this.tasksRepo.iterate()) {
-       task.completed = completed;
-       await task.save();
-    }
+    await Task.setAll(completed);
     this.loadTasks();
   }
 }
