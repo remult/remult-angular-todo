@@ -1,7 +1,7 @@
-import { Field, Entity, IdEntity, Validators, BackendMethod, Remult } from "remult";
+import { Field, Entity, IdEntity, Validators, BackendMethod, Remult, Allow } from "remult";
 
 @Entity("tasks", {
-    allowApiCrud: true
+    allowApiCrud: Allow.authenticated
 })
 export class Task extends IdEntity {
     @Field({
@@ -11,7 +11,7 @@ export class Task extends IdEntity {
     @Field()
     completed: boolean = false;
 
-    @BackendMethod({ allowed: true })
+    @BackendMethod({ allowed: Allow.authenticated })
     static async setAll(completed: boolean, remult?: Remult) {
         for await (const task of remult!.repo(Task).iterate()) {
             task.completed = completed;
