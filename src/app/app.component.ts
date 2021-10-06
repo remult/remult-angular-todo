@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Remult } from 'remult';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remult-angular-todo';
+  constructor(public remult: Remult) {
+  }
+  tasksRepo = this.remult.repo(Task);
+  newTask = this.tasksRepo.create();
+  async createNewTask() {
+    await this.newTask.save();
+    this.newTask = this.tasksRepo.create();
+  }
 }
