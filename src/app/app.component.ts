@@ -18,9 +18,11 @@ export class AppComponent {
     this.newTask = this.tasksRepo.create();
     this.loadTasks();
   }
+  hideCompleted: boolean = false;
   tasks: Task[] = [];
   async loadTasks() {
     this.tasks = await this.remult.repo(Task).find({
+      where: task => this.hideCompleted ? task.completed.isDifferentFrom(true) : undefined,
       orderBy: task => task.completed
     });
   }

@@ -6,10 +6,12 @@
   },
   {
     "id": "faae9073-dd46-406e-8dd2-82f48c9c8682",
-    "title": "Task b"
+    "title": "Task b",
+    "completed": false
   },
   {
     "id": "4c102cab-fe20-441e-921a-fa3b6d29531c",
-    "title": "Task c"
+    "title": "Task c",
+    "completed": true
   }
 ]

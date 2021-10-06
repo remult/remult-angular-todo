@@ -12,3 +12,7 @@
     <button (click)="deleteTask(task)">Delete</button>
   </li>
 </ul>
+<p>
+  <input type="checkbox" id="hideCompleted" [(ngModel)]="hideCompleted" (change)="loadTasks()">
+  <label for="hideCompleted">Hide completed</label>
+</p>
