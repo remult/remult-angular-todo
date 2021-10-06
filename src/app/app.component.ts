@@ -16,5 +16,13 @@ export class AppComponent {
   async createNewTask() {
     await this.newTask.save();
     this.newTask = this.tasksRepo.create();
+    this.loadTasks();
+  }
+  tasks: Task[] = [];
+  async loadTasks() {
+    this.tasks = await this.tasksRepo.find();
+  }
+  ngOnInit() {
+    this.loadTasks();
   }
 }
