@@ -25,4 +25,8 @@ export class AppComponent {
   ngOnInit() {
     this.loadTasks();
   }
+  async deleteTask(task: Task) {
+    await task.delete();
+    this.loadTasks();
+  }
 }

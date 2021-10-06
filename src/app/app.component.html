@@ -1,10 +1,11 @@
 <title>{{title}}</title>
 <div>
-   <input [(ngModel)]="newTask.title" placeholder="Title">
-   <button (click)="createNewTask()">Create new task</button>
+  <input [(ngModel)]="newTask.title" placeholder="Title">
+  <button (click)="createNewTask()">Create new task</button>
 </div>
 <ul>
   <li *ngFor="let task of tasks">
-     {{task.title}}
+    {{task.title}}
+    <button (click)="deleteTask(task)">Delete</button>
   </li>
 </ul>
