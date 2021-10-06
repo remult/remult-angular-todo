@@ -1,23 +1,25 @@
 <title>{{title}}</title>
-<div>
-  <input [(ngModel)]="newTask.title" placeholder="Title">
-  <button (click)="createNewTask()">Create new task</button>
-  <div *ngIf="newTask.$.title.error">
-    {{newTask.$.title.error}}
- </div>
-</div>
-<ul>
-  <li *ngFor="let task of tasks">
-    <input [(ngModel)]="task.completed" type="checkbox">
-    <input [(ngModel)]="task.title" 
+<ng-container *ngIf="remult.authenticated()">
+  <div>
+    <input [(ngModel)]="newTask.title" placeholder="Title">
+    <button (click)="createNewTask()">Create new task</button>
+    <div *ngIf="newTask.$.title.error">
+      {{newTask.$.title.error}}
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let task of tasks">
+      <input [(ngModel)]="task.completed" type="checkbox">
+      <input [(ngModel)]="task.title"
        [style.textDecoration]="task.completed?'line-through':''">
-    <button (click)="task.save()" [disabled]="!task.wasChanged()">Save</button>
-    <button (click)="deleteTask(task)">Delete</button>
-  </li>
-</ul>
-<p>
-  <input type="checkbox" id="hideCompleted" [(ngModel)]="hideCompleted" (change)="loadTasks()">
-  <label for="hideCompleted">Hide completed</label>
-</p>
-<button (click)="setAll(true)">Set all as completed</button> 
-<button (click)="setAll(false)">Set all as uncompleted</button>
+      <button (click)="task.save()" [disabled]="!task.wasChanged()">Save</button>
+      <button (click)="deleteTask(task)">Delete</button>
+    </li>
+  </ul>
+  <p>
+    <input type="checkbox" id="hideCompleted" [(ngModel)]="hideCompleted" (change)="loadTasks()">
+    <label for="hideCompleted">Hide completed</label>
+  </p>
+  <button (click)="setAll(true)">Set all as completed</button>
+  <button (click)="setAll(false)">Set all as uncompleted</button>
+</ng-container>

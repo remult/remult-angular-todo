@@ -21,10 +21,11 @@ export class AppComponent {
   hideCompleted: boolean = false;
   tasks: Task[] = [];
   async loadTasks() {
-    this.tasks = await this.tasksRepo.find({
-      where: task => this.hideCompleted ? task.completed.isDifferentFrom(true) : undefined,
-      orderBy: task => task.completed
-    });
+    if (this.remult.authenticated())
+      this.tasks = await this.tasksRepo.find({
+        where: task => this.hideCompleted ? task.completed.isDifferentFrom(true) : undefined,
+        orderBy: task => task.completed
+      });
   }
   ngOnInit() {
     this.loadTasks();
