@@ -1,27 +1,26 @@
-# RemultAngularTodo
+# Remult-Angular-Todo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
+This project is based on the remult tutorial  [Todo App with Angular
+](https://remult.github.io/guide/setup-angular.html) and saves all the work of doing the step by step setup.
 
-## Development server
+Simply open a command line and run the following commands to setup:
+```sh
+git clone https://github.com/remult/remult-angular-todo.git
+cd remult-angular-todo
+npm i
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Once it's done, open two terminals to run:
+1. The api server
+   ```
+   npm run dev-node
+   ```
+2. The Angular dev cli
+   ``` 
+   npm run dev-ng
+   ```
 
-## Code scaffolding
+And proceed to the [Entities](https://remult.github.io/guide/setup-remult.html#entities) section of the tutorials
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# What does it do?
+You can see the diff using [github compare](https://github.com/remult/remult-angular-todo/compare/first-commit...master)
