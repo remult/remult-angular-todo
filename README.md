@@ -23,5 +23,5 @@ Once it's done, open two terminals to run:
 And proceed to the [Entities](https://remult.github.io/guide/setup-remult.html#entities) section of the tutorials
 
 # What does it do?
-You can see the diff using [github compare](https://github.com/remult/remult-angular-todo/compare/first-commit...master)
+You can see the diff using [github compare](https://github.com/remult/remult-angular-todo/compare/after-ng-new...master)
 
