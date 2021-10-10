@@ -24,3 +24,4 @@ And proceed to the [Entities](https://remult.github.io/guide/setup-remult.html#e
 
 # What does it do?
 You can see the diff using [github compare](https://github.com/remult/remult-angular-todo/compare/first-commit...master)
+
