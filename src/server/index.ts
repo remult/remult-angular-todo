@@ -1,9 +1,6 @@
 import * as express from 'express';
-import * as swaggerUi from 'swagger-ui-express';
-import { initExpress } from 'remult/server';
+import { remultExpress } from 'remult/remult-express';
 
 let app = express();
-let api = initExpress(app);
-app.use('/api/docs', swaggerUi.serve,
-    swaggerUi.setup(api.openApiDoc({ title: 'remult-angular-todo' })));
+app.use(remultExpress());
 app.listen(3002, () => console.log("Server started"));
