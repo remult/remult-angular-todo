@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "express": "^4.17.2",
-    "remult": "^0.9.28",
+    "remult": "^0.10.4",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
