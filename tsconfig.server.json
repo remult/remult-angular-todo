@@ -1,11 +1,7 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-       "outDir": "./dist/server",
        "module": "commonjs",
        "emitDecoratorMetadata": true
-    },
-    "include": [
-       "src/server/index.ts"
-    ]
+    }
  }

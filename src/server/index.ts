@@ -1,6 +1,7 @@
-import * as express from 'express';
-import { remultExpress } from 'remult/remult-express';
+import express from 'express';
+import { api } from './api';
 
 const app = express();
-app.use(remultExpress());
+app.use(api);
+
 app.listen(3002, () => console.log("Server started"));
